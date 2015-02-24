@@ -105,4 +105,4 @@
 		}
 	}
 
-	class ValidateEmailException extends Exception {}
+	class ValidateEmailException extends \Exception {}
