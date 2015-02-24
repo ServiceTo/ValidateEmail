@@ -68,6 +68,7 @@
 					fwrite($socket, $message);
 
 					$buffer .= fgets($socket, 2048);
+				print($buffer);
 
 					$response = trim($buffer, "\r\n");
 					$buffer = null;
@@ -80,6 +81,7 @@
 						fwrite($socket, $message);
 
 						$buffer .= fgets($socket, 2048);
+				print($buffer);
 
 						$response = trim($buffer, "\r\n");
 						$buffer = null;
@@ -94,6 +96,7 @@
 						fwrite($socket, $message);
 
 						$buffer .= fgets($socket, 2048);
+				print($buffer);
 
 						$response = trim($buffer, "\r\n");
 						$buffer = null;
