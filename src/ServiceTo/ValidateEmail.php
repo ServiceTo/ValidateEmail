@@ -1,6 +1,8 @@
 <?php
 	namespace ServiceTo;
 
+	use Exception;
+
 	class ValidateEmail {
 		private $testaddress = "validateemail@service.to";
 
@@ -105,4 +107,4 @@
 		}
 	}
 
-	class ValidateEmailException extends \Exception {}
+	class ValidateEmailException extends Exception {}
