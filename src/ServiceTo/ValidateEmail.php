@@ -7,7 +7,7 @@
 		private $testaddress = "validateemail@service.to";
 
 		function test($emailaddress) {
-			$this->lookup($emailaddress);
+			return $this->lookup($emailaddress);
 		}
 		function lookup($emailaddress) {
 			list($user, $domain) = preg_split("/@/", trim($emailaddress));
@@ -68,7 +68,6 @@
 					fwrite($socket, $message);
 
 					$buffer .= fgets($socket, 2048);
-				print($buffer);
 
 					$response = trim($buffer, "\r\n");
 					$buffer = null;
@@ -81,7 +80,6 @@
 						fwrite($socket, $message);
 
 						$buffer .= fgets($socket, 2048);
-				print($buffer);
 
 						$response = trim($buffer, "\r\n");
 						$buffer = null;
@@ -89,10 +87,6 @@
 						list($code, $message) = preg_split("/\s+/", $response, 2);
 						if ($code == 250) {
 							$validated = 1;
-				print("validated\n");
-						}
-						else {
-				print("not validated " . $code . "\n");
 						}
 
 						// say goodbye regardless
@@ -100,7 +94,6 @@
 						fwrite($socket, $message);
 
 						$buffer .= fgets($socket, 2048);
-				print($buffer);
 
 						$response = trim($buffer, "\r\n");
 						$buffer = null;
