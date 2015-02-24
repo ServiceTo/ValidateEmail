@@ -89,6 +89,10 @@
 						list($code, $message) = preg_split("/\s+/", $response, 2);
 						if ($code == 250) {
 							$validated = 1;
+				print("validated\n");
+						}
+						else {
+				print("not validated " . $code . "\n");
 						}
 
 						// say goodbye regardless
