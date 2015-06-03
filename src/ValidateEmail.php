@@ -30,6 +30,13 @@
 		function lookup($emailaddress) {
 			list($user, $domain) = preg_split("/@/", trim($emailaddress));
 
+			if ($user == "") {
+				throw new ValidateEmailException("Blank user name");
+			}
+			if ($domain == "") {
+				throw new ValidateEmailException("Blank domain name");
+			}
+
 			$mxhosts = array();
 			$weight = array();
 			if (getmxrr($domain, $mxhosts, $weight)) {
