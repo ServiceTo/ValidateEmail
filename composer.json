@@ -1,0 +1,24 @@
+{
+	"name": "ServiceTo/ValidateEmail",
+	"type": "library",
+	"description": "Library to validate an email address against its mail servers by doing a name server lookup and then connecting to its MX records.",
+	"keywords": ["email", "validate", "validation", "mx", "mail"],
+	"homepage": "https://github.com/ServiceTo/ValidateEmail",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Ian Service",
+			"email": "ian@service.to",
+			"homepage": "https://ian.service.to",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"ServiceTo\\": "src"
+		}
+	}
+}

@@ -4,11 +4,29 @@
 	use Exception;
 
 	class ValidateEmail {
+		/**
+		 * The address to supply in our MAIL FROM connection to the SMTP servers we're talking to.
+		 *
+		 * @var string
+		 */
 		private $testaddress = "validateemail@service.to";
 
-		function test($emailaddress) {
+		/**
+		 * Alias to lookup
+		 *
+		 * @param  string  $emailaddress  email address to test
+		 * @return boolean
+		 */
+ 		function test($emailaddress) {
 			return $this->lookup($emailaddress);
 		}
+
+		/**
+		 * Lookup all MX records and check each until we have a success
+		 *
+		 * @param  string  $emailaddress  email address to look up
+		 * @return boolean
+		 */
 		function lookup($emailaddress) {
 			list($user, $domain) = preg_split("/@/", trim($emailaddress));
 
@@ -21,7 +39,7 @@
 
 				foreach ($mxhosts as $id => $mxhost) {
 					if ($this->verify($emailaddress, $mxhost)) {
-						return 1;
+						return true;
 					}
 				}
 			}
@@ -30,8 +48,15 @@
 			}
 		}
 
+		/**
+		 * Connect to the mail server on port 25 and see if it allows mail for the users' supplied email address.
+		 *
+		 * @param  string  $emailaddress  email address to test
+		 * @param  string  $mxhost        mail server host name to connect to and test
+		 * @return boolean
+		 */
 		function verify($emailaddress, $mxhost) {
-			$validated = 0;
+			$validated = false;
 
 			$socket = stream_socket_client("tcp://" . $mxhost . ":25", $errno, $errstr, 30);
 			stream_set_blocking($socket, true);
@@ -86,7 +111,7 @@
 
 						list($code, $message) = preg_split("/\s+/", $response, 2);
 						if ($code == 250) {
-							$validated = 1;
+							$validated = true;
 						}
 
 						// say goodbye regardless
