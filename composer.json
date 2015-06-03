@@ -1,5 +1,5 @@
 {
-	"name": "ServiceTo/ValidateEmail",
+	"name": "service-to/validate-email",
 	"type": "library",
 	"description": "Library to validate an email address against its mail servers by doing a name server lookup and then connecting to its MX records.",
 	"keywords": ["email", "validate", "validation", "mx", "mail"],
