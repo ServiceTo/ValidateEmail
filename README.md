@@ -35,7 +35,7 @@ It typically only takes a moment to validate a working address and when an inval
 	$validateemail = new ValidateEmail;
 	try {
 		if (!$validateemail->test($_REQUEST["email"])) {
-			$errors["email"] = "Invalid Email Address"];
+			$errors["email"] = "Invalid Email Address";
 		}
 	}
 	catch (ServiceTo\ValidateEmailException $vee) {
