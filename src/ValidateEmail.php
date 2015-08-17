@@ -78,7 +78,7 @@
 			list($code, $message) = preg_split("/\s+/", $response, 2);
 			if ($code == 220) {
 				// say hello.
-				$message = "EHLO ValidateEmail\r\n";
+				$message = "EHLO ValidateEmail.service.to\r\n";
 				fwrite($socket, $message);
 
 				while($buf = fgets($socket)) {
