@@ -28,7 +28,14 @@
 		 * @return boolean
 		 */
 		function lookup($emailaddress) {
-			list($user, $domain) = preg_split("/@/", trim($emailaddress));
+			$user = "";
+			$domain = "";
+			if (strpos($emailadd, "@")) {
+				list($user, $domain) = preg_split("/@/", trim($emailaddress));
+			}
+			else {
+				throw new ValidateEmailException("No at sign to work with");
+			}
 
 			if ($user == "") {
 				throw new ValidateEmailException("Blank user name");
