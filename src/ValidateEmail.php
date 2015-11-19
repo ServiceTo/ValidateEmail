@@ -30,7 +30,7 @@
 		function lookup($emailaddress) {
 			$user = "";
 			$domain = "";
-			if (strpos($emailadd, "@")) {
+			if (strpos($emailaddress, "@")) {
 				list($user, $domain) = preg_split("/@/", trim($emailaddress));
 			}
 			else {
