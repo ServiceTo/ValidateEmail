@@ -20,7 +20,7 @@ It typically only takes a moment to validate a working address and when an inval
 				return redirect()->back()->withErrors(["email" => "Invalid Email Address"])
 			}
 		}
-		catch (ValidateEmailException $vee) {
+		catch (\ServiceTo\ValidateEmailException $vee) {
 			return redirect()->back()->withErrors(["email" => "Invalid Email Address (" . $vee->getMessage() . ")"])
 		}
 
