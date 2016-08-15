@@ -146,7 +146,7 @@
 				}
 			}
 			catch (Exception $e) {
-				throw new ValidateEmailException($e->toString());
+				throw new ValidateEmailException($e->getMessage());
 			}
 		}
 	}
