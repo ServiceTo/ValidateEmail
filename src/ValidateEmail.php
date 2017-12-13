@@ -84,6 +84,15 @@
 				$buffer = null;
 
 				list($code, $message) = preg_split("/\s+/", $response, 2);
+				if (substr($code, 3, 1) == "-") {
+					// they're still talking...
+
+					$buffer .= fgets($socket, 2048);
+
+					$response = trim($buffer, "\r\n.");
+					list($code, $message) = preg_split("/\s+/", $response, 2);
+				}
+
 				if ($code == 220) {
 					// say hello.
 					$message = "EHLO ValidateEmail.service.to\r\n";
