@@ -9,7 +9,7 @@
 		 *
 		 * @var string
 		 */
-		private $testaddress = "validateemail@service.to";
+		public $testaddress = "validateemail@service.to";
 
 		/**
 		 * Alias to lookup
