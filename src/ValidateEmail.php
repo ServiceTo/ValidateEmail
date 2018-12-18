@@ -73,7 +73,9 @@
 			try {
 				$validated = false;
 
-				$socket = stream_socket_client("tcp://" . $mxhost . ":25", $errno, $errstr, 30);
+				$opts = array('socket' => array('bindto' => '0:0'));
+				$ctx = stream_context_create($opts);
+				$socket = stream_socket_client("tcp://" . $mxhost . ":25", $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $ctx);
 				stream_set_blocking($socket, true);
 
 				$buffer = null;
